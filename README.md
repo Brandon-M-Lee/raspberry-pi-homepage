@@ -43,4 +43,4 @@ PowerShell에서 실행 정책 오류가 걸린다면 다음 명령으로 정책
 
 다음 명령으로 프로그램을 실행시킨다.
 
-    python main.py
+    python app.py

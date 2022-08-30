@@ -2,6 +2,7 @@ import chromedriver_autoinstaller
 from selenium import webdriver
 from selenium.webdriver.common.by import By
 from urllib import parse
+import time
 
 chrome_ver = chromedriver_autoinstaller.get_chrome_version().split('.')[0]
 
@@ -19,9 +20,12 @@ def make_link(sl, tl, text):
 
 def get_result(link):
     driver.get(link)
+    time.sleep(1)
     if link[8] == 't': #구글 번역기
-        result = driver.find_element(By.XPATH, '//*[@id="ow167"]/div[1]/span[1]/span/span').text
-        print(result)
+        result = driver.find_element(By.CLASS_NAME, 'Q4iAWc').text
+    if link[8] == 'p': #파파고
+        result = driver.find_element(By.ID, 'txtTarget').text
+    return result
 
 if __name__ == '__main__':
     link = make_link('ko', 'en', '안녕하세요')[0]
