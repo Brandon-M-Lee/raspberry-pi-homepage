@@ -1,5 +1,5 @@
 from flask import render_template, request
-from backend import make_link, get_result
+from route.backend import make_link, get_result
 
 def result_get():
     sl = request.args.get('sl', default='en', type=str)
